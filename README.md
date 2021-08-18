@@ -1,14 +1,23 @@
-For fresh install of rails
+# API Points
+
+Rails Backend API at `https://localhost:3000`
+
+# Startup Instructions
+
+## To run the project
 
 ```shell
-docker build -t rails-toolbox \
-       --build-arg USER_ID=$(id -u)  \
-       --build-arg GROUP_ID=$(id -g) \
-       -f Dockerfile.rails .
+docker-compose up
 ```
 
+## For starting the project for the first time on local
 ```shell
-docker run -it \
-    -v $PWD:/opt/app \
-    rails-toolbox rails new --skip-bundle --api api
+# Build the images
+docker-compose up
+
+# Then stop the command and run migrations
+docker­-compose run api rake db:prepare
+
+# Then you can run the servers
+docker-compose up
 ```
