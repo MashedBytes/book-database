@@ -14,9 +14,11 @@ docker-compose up
 ## For starting the project for the first time on local
 ```shell
 # Build the images
-docker-compose up
+docker-compose build
 
 # Then stop the command and run migrations
+docker­-compose run api bundle install
+docker­-compose run api yarn install
 docker­-compose run api rake db:prepare
 
 # Then you can run the servers

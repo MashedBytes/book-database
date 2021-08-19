@@ -18,6 +18,7 @@ services:
         GROUP_ID: "${GROUP_ID:-1000}"
     volumes:
       - ./api:/opt/app
+      - bundler_gems:/bundle
     links:
       - postgres
     ports:
@@ -34,3 +35,4 @@ services:
       - '4000:3000'
 volumes:
   api-postgres:
+  bundler_gems:
