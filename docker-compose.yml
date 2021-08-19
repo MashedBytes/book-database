@@ -12,6 +12,7 @@ services:
   api:
     build:
       context: .
+      dockerfile: ./Dockerfile.api
       args:
         USER_ID: "${USER_ID:-1000}"
         GROUP_ID: "${GROUP_ID:-1000}"
@@ -23,5 +24,13 @@ services:
       - '3000:3000'
     env_file:
       - .env
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.react
+    volumes:
+      - ./app:/opt/app
+    ports:
+      - '4000:3000'
 volumes:
   api-postgres:

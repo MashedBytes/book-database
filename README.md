@@ -1,6 +1,7 @@
 # API Points
 
 Rails Backend API at `https://localhost:3000`
+React Front at `https://localhost:4000`
 
 # Startup Instructions
 
