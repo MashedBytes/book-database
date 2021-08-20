@@ -2,10 +2,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
-import { CenterRow } from "./components/layout/CenterRow";
 import { Nav } from "./components/layout/Nav";
 import { Authors } from './components/authors/Authors';
 import { AuthorForm } from './components/authors/AuthorForm';
@@ -24,20 +22,20 @@ function App() {
         <Nav />
 
         <Row justify={"center"} align={"middle"} style={{ minHeight: '100vh' }}>
-          
+
           <Col span={16}>
           </Col>
 
           <Col span={16}>
             <Switch>
-              <Route path="/authors">
-                <Authors />
-              </Route>
-              <Route path="/authors/:id">
+              <Route path="/authors/:id/edit">
                 <AuthorForm />
               </Route>
               <Route path="/authors/new">
                 <AuthorForm />
+              </Route>
+              <Route path="/authors">
+                <Authors />
               </Route>
               <Route path="/">
                 <Home />
