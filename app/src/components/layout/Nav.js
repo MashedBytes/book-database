@@ -19,7 +19,7 @@ export const Nav = () => {
 
   return (
     <>
-      <Row justify={"center"} align={"middle"} style={{ position: 'absolute', right: '18vw', top: '18vh' }}>
+      <Row justify={"center"} align={"middle"} style={{ position: 'absolute', right: '18vw', top: '18vh', zIndex: 9999 }}>
         <Col span={16}>
         </Col>
 
