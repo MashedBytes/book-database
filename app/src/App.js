@@ -5,10 +5,16 @@ import {
 } from "react-router-dom";
 
 import { Nav } from "./components/layout/Nav";
+
 import { Authors } from './components/authors/Authors';
 import { AuthorForm } from './components/authors/AuthorForm';
+
 import { Topics } from './components/topics/Topics';
 import { TopicForm } from './components/topics/TopicForm';
+
+import { Boxes } from './components/boxes/Boxes';
+import { BoxForm } from './components/boxes/BoxForm';
+
 import { Home } from "./components/home/Home";
 import { Row, Col } from 'antd';
 
@@ -51,10 +57,20 @@ function App() {
                 <Topics />
               </Route>
 
+              <Route path="/boxes/:id/edit">
+                <BoxForm />
+              </Route>
+              <Route path="/boxes/new">
+                <BoxForm />
+              </Route>
+              <Route path="/boxes">
+                <Boxes />
+              </Route>
+
               <Route path="/">
                 <Home />
               </Route>
-              
+
             </Switch>
           </Col>
 

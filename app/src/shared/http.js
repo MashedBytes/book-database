@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch';
 const api_host = "http://localhost:3000"
 
 function generateFetchConfig(method, body = null) {
-  
+
   const upCasedMethod = method.toUpperCase();
   const config = {
     method: upCasedMethod,
@@ -50,4 +50,21 @@ export function deleteAuthor(id) {
 export function fetchAuthors() {
   return fetch(`${api_host}/authors`, generateFetchConfig('GET'));
 }
+
+export function createBox(payload) {
+  return fetch(`${api_host}/boxes`, generateFetchConfig("POST", payload));
+}
+
+export function updateBox(payload) {
+  return fetch(`${api_host}/boxes/${payload.id}`, generateFetchConfig("PATCH", payload));
+}
+
+export function deleteBox(id) {
+  return fetch(`${api_host}/boxes/${id}`, generateFetchConfig("DELETE"));
+}
+
+export function fetchBoxes() {
+  return fetch(`${api_host}/boxes`, generateFetchConfig('GET'));
+}
+
 
