@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :boxes
   resources :topics
   resources :authors
+
+  get "/search" => "search#index"
 end

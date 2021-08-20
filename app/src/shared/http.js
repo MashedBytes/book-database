@@ -19,6 +19,10 @@ function generateFetchConfig(method, body = null) {
   return config;
 }
 
+export function searchBooks(query) {
+  return fetch(`${api_host}/search?q=${encodeURIComponent(query)}`, generateFetchConfig('GET'));
+}
+
 export function createTopic(payload) {
   return fetch(`${api_host}/topics`, generateFetchConfig("POST", payload));
 }
