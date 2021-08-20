@@ -7,7 +7,8 @@ import {
   UserOutlined, 
   MenuOutlined, 
   UnorderedListOutlined, 
-  InboxOutlined
+  InboxOutlined,
+  DatabaseOutlined
 } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
@@ -69,6 +70,15 @@ export const Nav = () => {
                 </Menu.Item>
                 <Menu.Item>
                   <Link to="/boxes/new">Add Box</Link>
+                </Menu.Item>
+              </SubMenu>
+
+              <SubMenu icon={<DatabaseOutlined />} title="Book Shelves">
+                <Menu.Item>
+                  <Link to="/bookshelves">Book Shelves List</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/bookshelves/new">Add Book Shelf</Link>
                 </Menu.Item>
               </SubMenu>
 

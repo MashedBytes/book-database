@@ -67,4 +67,19 @@ export function fetchBoxes() {
   return fetch(`${api_host}/boxes`, generateFetchConfig('GET'));
 }
 
+export function createBookShelf(payload) {
+  return fetch(`${api_host}/book_shelves`, generateFetchConfig("POST", payload));
+}
+
+export function updateBookShelf(payload) {
+  return fetch(`${api_host}/book_shelves/${payload.id}`, generateFetchConfig("PATCH", payload));
+}
+
+export function deleteBookShelf(id) {
+  return fetch(`${api_host}/book_shelves/${id}`, generateFetchConfig("DELETE"));
+}
+
+export function fetchBookShelves() {
+  return fetch(`${api_host}/book_shelves`, generateFetchConfig('GET'));
+}
 
