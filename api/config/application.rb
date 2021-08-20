@@ -36,12 +36,18 @@ module Api
     # Docker expects your application to log to STDOUT/STDERR and to be ran
     # in the foreground.
     config.log_level = :debug
-    config.log_tags  = [:subdomain, :uuid]
+    config.log_tags  = [:subdomain]
     config.logger    = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.action_dispatch.default_headers = {
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Request-Method' => %w{GET PUT PATCH DELETE POST OPTIONS}.join(",")
+    }
+
   end
 end

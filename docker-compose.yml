@@ -33,6 +33,8 @@ services:
       - ./app:/opt/app
     ports:
       - '4000:3000'
+    env_file:
+      - .env
 volumes:
   api-postgres:
   bundler_gems:
