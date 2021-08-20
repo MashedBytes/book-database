@@ -2,7 +2,7 @@ import { Form, Input, Button } from 'antd';
 import { useLocation, useHistory } from 'react-router';
 
 import { Heading } from '../layout/Heading';
-import { createOrUpdateTopic } from '../../shared/http';
+import { createTopic, updateTopic } from '../../shared/http';
 
 export const TopicForm = () => {
   const [form] = Form.useForm()
@@ -18,7 +18,11 @@ export const TopicForm = () => {
   })
 
   const onFinish = async values => {
-    await createOrUpdateTopic(values, actionType)
+    if(actionType === "POST")
+      await createTopic(values)
+    else 
+      await updateTopic({...record, ...values})
+
     history.push("/topics")
   }
 

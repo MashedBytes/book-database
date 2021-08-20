@@ -12,15 +12,19 @@ function generateFetchConfig(method, body = null) {
     }
   };
 
-  if (['POST', 'PUT'].includes(upCasedMethod)) {
+  if (['POST', 'PATCH'].includes(upCasedMethod)) {
     config.body = JSON.stringify(body);
   }
 
   return config;
 }
 
-export function createOrUpdateTopic(payload, method = "POST") {
-  return fetch(`${api_host}/topics`, generateFetchConfig(method, payload));
+export function createTopic(payload) {
+  return fetch(`${api_host}/topics`, generateFetchConfig("POST", payload));
+}
+
+export function updateTopic(payload) {
+  return fetch(`${api_host}/topics/${payload.id}`, generateFetchConfig("PATCH", payload));
 }
 
 export function deleteTopic(id) {
