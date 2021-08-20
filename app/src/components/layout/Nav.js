@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 
 import { Drawer, Button, Row, Col, Menu } from 'antd';
-import { HomeOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
+import { HomeOutlined, UserOutlined, MenuOutlined, UnorderedListOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -44,6 +44,14 @@ export const Nav = () => {
                 </Menu.Item>
                 <Menu.Item>
                   <Link to="/authors/new">Add Author</Link>
+                </Menu.Item>
+              </SubMenu>
+              <SubMenu icon={<UnorderedListOutlined />} title="Topics">
+                <Menu.Item>
+                  <Link to="/topics">Topics List</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/topics/new">Add Topic</Link>
                 </Menu.Item>
               </SubMenu>
             </Menu>

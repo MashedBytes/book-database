@@ -7,6 +7,8 @@ import {
 import { Nav } from "./components/layout/Nav";
 import { Authors } from './components/authors/Authors';
 import { AuthorForm } from './components/authors/AuthorForm';
+import { Topics } from './components/topics/Topics';
+import { TopicForm } from './components/topics/TopicForm';
 import { Home } from "./components/home/Home";
 import { Row, Col } from 'antd';
 
@@ -28,6 +30,7 @@ function App() {
 
           <Col span={16}>
             <Switch>
+
               <Route path="/authors/:id/edit">
                 <AuthorForm />
               </Route>
@@ -37,9 +40,21 @@ function App() {
               <Route path="/authors">
                 <Authors />
               </Route>
+
+              <Route path="/topics/:id/edit">
+                <TopicForm />
+              </Route>
+              <Route path="/topics/new">
+                <TopicForm />
+              </Route>
+              <Route path="/topics">
+                <Topics />
+              </Route>
+
               <Route path="/">
                 <Home />
               </Route>
+              
             </Switch>
           </Col>
 
