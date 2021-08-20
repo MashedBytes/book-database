@@ -83,3 +83,31 @@ export function fetchBookShelves() {
   return fetch(`${api_host}/book_shelves`, generateFetchConfig('GET'));
 }
 
+function transformBookPayload(payload) {
+  console.log(payload)
+  const [storage_place_type, storage_place_id] = payload.storage_place.split(",")
+  return {
+    id: payload.id,
+    title: payload.title,
+    author_id: payload.author_id,
+    topic_id: payload.topic_id,
+    storage_place_id: storage_place_id,
+    storage_place_type: storage_place_type
+  }
+}
+export function createBook(payload) {
+  return fetch(`${api_host}/books`, generateFetchConfig("POST", transformBookPayload(payload)));
+}
+
+export function updateBook(payload) {
+  return fetch(`${api_host}/books/${payload.id}`, generateFetchConfig("PATCH", transformBookPayload(payload)));
+}
+
+export function deleteBook(id) {
+  return fetch(`${api_host}/books/${id}`, generateFetchConfig("DELETE"));
+}
+
+export function fetchBooks() {
+  return fetch(`${api_host}/books`, generateFetchConfig('GET'));
+}
+

@@ -39,11 +39,8 @@ box_1, box_2 = Box.create([
 
 Book.create(title: "Star Wars 1", author: john_brown, topic: fiction, storage_place: shelf_1)
 Book.create(title: "Star Wars 2", author: jim_green, topic: fiction, storage_place: shelf_1)
-Book.create(title: "Star Wars 3", author: joe_black, topic: fiction, storage_place: shelf_1)
 
 Book.create(title: "Lord of the Rings 1", author: john_brown, topic: fiction, storage_place: shelf_2)
 Book.create(title: "Lord of the Rings 2", author: jim_green, topic: fiction, storage_place: shelf_2)
-Book.create(title: "Lord of the Rings 3", author: joe_black, topic: fiction, storage_place: shelf_2)
 
 Book.create(title: "Physics", author: john_brown, topic: science, storage_place: box_1)
-Book.create(title: "Chemistry", author: john_brown, topic: science, storage_place: box_2)

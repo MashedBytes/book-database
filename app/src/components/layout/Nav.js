@@ -8,7 +8,8 @@ import {
   MenuOutlined, 
   UnorderedListOutlined, 
   InboxOutlined,
-  DatabaseOutlined
+  DatabaseOutlined,
+  BookOutlined
 } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
@@ -45,6 +46,15 @@ export const Nav = () => {
               <Menu.Item icon={<HomeOutlined />}>
                 <Link to="/">Home</Link>
               </Menu.Item>
+
+              <SubMenu icon={<BookOutlined />} title="Books">
+                <Menu.Item>
+                  <Link to="/books">Books List</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/books/new">Add Books</Link>
+                </Menu.Item>
+              </SubMenu>
 
               <SubMenu icon={<UserOutlined />} title="Authors">
                 <Menu.Item>

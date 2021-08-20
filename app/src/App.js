@@ -18,6 +18,9 @@ import { BoxForm } from './components/boxes/BoxForm';
 import { BookShelves } from './components/book_shelves/BookShelves';
 import { BookShelfForm } from './components/book_shelves/BookShelfForm';
 
+import { Books } from './components/books/Books';
+import { BookForm } from './components/books/BookForm';
+
 import { Home } from "./components/home/Home";
 import { Row, Col } from 'antd';
 
@@ -78,6 +81,16 @@ function App() {
               </Route>
               <Route path="/bookshelves">
                 <BookShelves />
+              </Route>
+
+              <Route path="/books/:id/edit">
+                <BookForm />
+              </Route>
+              <Route path="/books/new">
+                <BookForm />
+              </Route>
+              <Route path="/books">
+                <Books />
               </Route>
 
               <Route path="/">
