@@ -20,6 +20,7 @@ docker-compose build
 docker­-compose run api bundle install
 docker­-compose run api yarn install
 docker­-compose run api rake db:prepare
+docker­-compose run api rake db:seed
 
 # Then you can run the servers
 docker-compose up
