@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Table, Space } from 'antd';
+import { Table, Space, Typography } from 'antd';
+
+const { Title } = Typography;
 
 const data = [
   {
@@ -48,7 +50,10 @@ export class Authors extends Component {
 
 
   render() {
-    return <Table columns={this.columns} dataSource={this.state.authors} />
+    return <>
+      <Title>Authors</Title>
+      <Table columns={this.columns} dataSource={this.state.authors} />
+    </>
   }
 
 }
