@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch';
 const api_host = "http://localhost:3000"
 
 function generateFetchConfig(method, body = null) {
-  console.log(method)
+  
   const upCasedMethod = method.toUpperCase();
   const config = {
     method: upCasedMethod,
@@ -31,20 +31,23 @@ export function deleteTopic(id) {
   return fetch(`${api_host}/topics/${id}`, generateFetchConfig("DELETE"));
 }
 
-
 export function fetchTopics() {
   return fetch(`${api_host}/topics`, generateFetchConfig('GET'));
 }
 
-/**
-* Fetch a topic from the API
-* @method fetchTopic
-* @param  {string}  id topic ID
-* @return {Response}     Fetch Response object
-*/
-export function fetchTopic(id) {
-  return fetch(
-    `${api_host}/topics/${id}?_embed=comments&_expand=user&_embed=likes`,
-    generateFetchConfig('GET')
-  );
+export function createAuthor(payload) {
+  return fetch(`${api_host}/authors`, generateFetchConfig("POST", payload));
 }
+
+export function updateAuthor(payload) {
+  return fetch(`${api_host}/authors/${payload.id}`, generateFetchConfig("PATCH", payload));
+}
+
+export function deleteAuthor(id) {
+  return fetch(`${api_host}/authors/${id}`, generateFetchConfig("DELETE"));
+}
+
+export function fetchAuthors() {
+  return fetch(`${api_host}/authors`, generateFetchConfig('GET'));
+}
+

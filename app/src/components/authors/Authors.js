@@ -1,44 +1,41 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Table, Space } from 'antd';
+import { Table, Space, Popconfirm } from 'antd';
 
 import { Heading } from '../layout/Heading';
-
-const data = [
-  {
-    id: 1,
-    name: 'John Brown',
-  },
-  {
-    id: 2,
-    name: 'Jim Green',
-  },
-  {
-    id: 3,
-    name: 'Joe Black',
-  },
-];
+import { fetchAuthors, deleteAuthor } from '../../shared/http';
 
 export const Authors = () => {
 
   const [authors, setAuthors] = useState([]);
 
-  useEffect(() => {
-    setAuthors(data.map(author => (
-      { ...author, key: author.name }
-    )))
-  }, [])
+  const getAuthors = () => {
+    fetchAuthors()
+      .then(res => res.json())
+      .then(res => setAuthors(
+        res.map(author => (
+          { ...author, key: author.id }
+        ))
+      ))
+  }
+
+  useEffect(() => getAuthors(), [])
 
   const columns = [
     {
-      title: 'Name',
-      dataIndex: 'name',
+      title: 'First Name',
+      dataIndex: 'first_name',
+    },
+    {
+      title: 'Last Name',
+      dataIndex: 'last_name',
     },
     {
       title: 'Action',
       key: 'action',
       render: (text, record) => (
         <Space size="middle">
+
           <Link to={{
             pathname: `/authors/${record.id}/edit`,
             state: {
@@ -48,7 +45,18 @@ export const Authors = () => {
           >
             Edit
           </Link>
-          <a>Delete</a>
+
+          <Popconfirm
+            title="Are you sure to delete this author?"
+            onConfirm={async () => {
+              await deleteAuthor(record.id)
+              getAuthors()
+            }}
+            okText="Yes"
+            cancelText="No"
+          >
+            <a href="#">Delete</a>
+          </Popconfirm>
         </Space>
       ),
     },
